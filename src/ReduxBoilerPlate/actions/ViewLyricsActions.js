@@ -1,13 +1,13 @@
 import { VIEW_LYRICS } from "./types";
 import axios from "axios";
 
-export const viewLyrics = () => dispatch => {
+export const viewLyrics = (track_id) => dispatch => {
   const CORS = "https://cors-anywhere.herokuapp.com/";
   const URL =
     "http://api.musixmatch.com/ws/1.1/track.lyrics.get";
   const preparedURL = `${CORS}${URL}`;
   const params = {
-    track_id: "15953433",
+    track_id,
     apikey: "d175c41a09dfcb1098e2f6fcce494ad7"
   };
 

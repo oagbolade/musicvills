@@ -1,14 +1,50 @@
 import React, { Component } from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import style from "../../css/Results.css";
+import Modal from "./../modal/Modal";
 import { connect } from "react-redux";
-import { getSongs } from "./../../ReduxBoilerPlate/actions/getSongsActions";
-import { viewLyrics } from "./../../ReduxBoilerPlate/actions/ViewLyricsActions";
+import { getSongs } from "../../ReduxBoilerPlate/actions/getSongsActions";
+import { viewLyrics } from "../../ReduxBoilerPlate/actions/ViewLyricsActions";
 
 class Result extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modalIsOpen: false,
+      lyrics: {},
+      trackId: null,
+      trackName: null
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.getTrackId = this.getTrackId.bind(this);
+    this.getTrackName = this.getTrackName.bind(this);
+  }
+
   componentDidMount() {
     this.props.getSongs(this.props.match.params.songTitle);
   }
+
+  openModal(id, trackName) {
+    this.getTrackId(id);
+    this.getTrackName(trackName);
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
+  getTrackId(id) {
+    this.setState({ trackId: id });
+    //this.props.viewLyrics(15953433);
+  }
+
+  getTrackName(trackName) {
+        this.setState({ trackName });
+  }
+
   render() {
     var allSongs = null;
 
@@ -24,7 +60,17 @@ class Result extends Component {
               <b>Album Name</b> <span>{songs.track.album_name}</span>
             </div>
             <div className={style.cardFooter}>
-              <button className={style.button} type="button">
+              <div>{songs.track.commontrack_id}</div>
+              <button
+                className={style.button}
+                onClick={() =>
+                  this.openModal(
+                    songs.track.commontrack_id,
+                    songs.track.track_name
+                  )
+                }
+                type="button"
+              >
                 View Lyrics
               </button>
             </div>
@@ -40,10 +86,13 @@ class Result extends Component {
             <button type="button">Back</button>
           </Link>
         </div>
-
-        <div className={style.resultContainer}>
-          {allSongs}
-        </div>
+        <div className={style.resultContainer}>{allSongs}</div>
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          trackId={this.state.trackId}
+          closeModal={this.closeModal}
+          songName={this.state.trackName}
+        />
       </div>
     );
   }

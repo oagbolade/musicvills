@@ -14,9 +14,6 @@ class Home extends Component {
     this.onChange = this.onChange.bind(this);
     this.search = this.search.bind(this);
   }
-  componentDidMount() {
-    console.log(process.env.API_KEY + " API KEY");
-  }
 
   search() {
     this.setState({ redirect: true });
