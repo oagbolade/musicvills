@@ -19,7 +19,10 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          { loader: "style-loader", options: { base: 2000 } },
+          {
+            loader: "style-loader",
+            options: { base: 2000 }
+          },
           {
             loader: "css-loader",
             options: {
@@ -31,12 +34,16 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png)$/,
         use: ["url-loader"]
       },
       {
         test: /\.html$/,
         use: ["html-loader"]
+      },
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader"
       }
     ]
   },

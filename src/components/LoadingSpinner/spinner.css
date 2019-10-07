@@ -1,0 +1,9 @@
+.spinnerMain {
+  width: 100%;
+}
+
+.spinnerMain img {
+  display: block;
+  margin: 0 auto;
+  margin-top: 40vh;
+}

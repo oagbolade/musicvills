@@ -7,6 +7,7 @@ export const getSongs = songTitle => dispatch => {
   const preparedURL = `${CORS}${URL}`;
   const params = {
     q_track: songTitle,
+    f_has_lyrics: true,
     apikey: "d175c41a09dfcb1098e2f6fcce494ad7"
   };
 

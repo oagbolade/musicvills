@@ -10,7 +10,7 @@
 .modalMain {
   position: fixed;
   background: white;
-  width: 80%;
+  width: 60%;
   padding: 20px;
   top: 50%;
   left: 50%;
@@ -42,4 +42,10 @@ section button {
   padding: 10px;
 
   border-top: 1px #8ed0f9 solid;
+}
+
+@media screen and (max-width: 710px) {
+  .modalMain{
+  width: 80%;
+  }
 }

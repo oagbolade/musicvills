@@ -1,7 +1,7 @@
 .bodyComponentResults {
   background-color: #8ed0f9;
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vmax;
+  min-height: 100vmax;
 }
 
 .resultContainer {

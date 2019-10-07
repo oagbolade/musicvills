@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, BrowserRouter as Router } from "react-router-dom";
 import style from "../../css/Results.css";
 import Modal from "./../modal/Modal";
+import Spinner from "./../LoadingSpinner/Spinner";
 import { connect } from "react-redux";
 import { getSongs } from "../../ReduxBoilerPlate/actions/getSongsActions";
 import { viewLyrics } from "../../ReduxBoilerPlate/actions/ViewLyricsActions";
@@ -10,6 +11,7 @@ class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       modalIsOpen: false,
       lyrics: {},
       trackId: null,
@@ -42,13 +44,23 @@ class Result extends Component {
   }
 
   getTrackName(trackName) {
-        this.setState({ trackName });
+    this.setState({ trackName });
+  }
+
+  loading() {
+    this.setState({ loading: false });
+  }
+
+  SongsExists() {
+    if (this.props.songProps.length !== 0) {
+      console.log(this.props.songProps);
+      return true;
+    }
   }
 
   render() {
-    var allSongs = null;
-
-    if (this.props.songProps.length !== 0) {
+    let allSongs = null;
+    if (this.SongsExists()) {
       allSongs = this.props.songProps.data.message.body.track_list.map(
         songs => (
           <div className={style.resultCard}>
@@ -60,7 +72,6 @@ class Result extends Component {
               <b>Album Name</b> <span>{songs.track.album_name}</span>
             </div>
             <div className={style.cardFooter}>
-              <div>{songs.track.commontrack_id}</div>
               <button
                 className={style.button}
                 onClick={() =>
@@ -86,7 +97,13 @@ class Result extends Component {
             <button type="button">Back</button>
           </Link>
         </div>
-        <div className={style.resultContainer}>{allSongs}</div>
+        <div>
+          {this.SongsExists() ? (
+            <div className={style.resultContainer}>{allSongs}</div>
+          ) : (
+            <Spinner />
+          )}
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           trackId={this.state.trackId}
