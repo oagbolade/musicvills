@@ -37,6 +37,8 @@ class Modal extends Component {
           </div>
         </div>
       );
+    } else if (this.props.isOpen) {
+      return <Spinner />;
     }
     return null;
   }
