@@ -7,7 +7,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-        "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "react": "^16.9.0",
@@ -15,7 +15,6 @@
     "react-modal": "^3.10.1",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.1.2",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
@@ -23,30 +22,20 @@
     "@babel/preset-react": "^7.0.0",
     "axios": "^0.19.0",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.2.0",
     "custom-env": "^1.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.2.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "react-scripts": "^1.1.4",
     "style-loader": "^1.0.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "webpack-dev-server": "^3.8.2"
   }
 }
