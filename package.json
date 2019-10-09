@@ -41,7 +41,6 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.2.1"
   },
-  "homepage": "http://localhost:8080",
   "browserslist": {
     "production": [
       ">0.2%",
