@@ -53,10 +53,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: "./public/index.html",
-      favicon: "./public/favicon.ico"
+      favicon: "./public/icon.png"
     })
-  ],
-  node: {
-    fs: "empty"
-  }
+  ]
 };
