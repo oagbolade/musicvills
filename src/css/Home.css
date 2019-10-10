@@ -6,7 +6,7 @@ body{
 .bodyComponentHome{
     background: linear-gradient( rgba(0, 0, 0, 0.5),
      rgba(0, 0, 0, 0.5) ),
-     url('./MusicBackground.jpg');
+     url('https://res.cloudinary.com/oladayoagbolade/image/upload/v1570715241/hkqbbdkk5x4xfevhdwep.jpg');
     background-repeat: no-repeat; 
     background-color: #57C0FA; /* Used if the image is unavailable */
     background-position: center; /* Center the image */
@@ -52,7 +52,7 @@ button{
     body{
         background: linear-gradient( rgba(0, 0, 0, 0.5),
      rgba(0, 0, 0, 0.5) ),
-     url('./MusicBackgroundSmall.jpg');
+     url('https://res.cloudinary.com/oladayoagbolade/image/upload/v1570715240/hxdjthlymd9hgpbvaqro.jpg');
     background-repeat: no-repeat; 
     background-color: #57C0FA; /* Used if the image is unavailable */
     background-position: center; /* Center the image */
