@@ -5,11 +5,6 @@ import Spinner from "./components/LoadingSpinner/Spinner";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import store from "./ReduxBoilerPlate/store";
 import { Provider } from "react-redux";
-import { disableReactDevTools } from "@fvilers/disable-react-devtools";
-
-if (process.env.NODE_ENV === "production") {
-  disableReactDevTools();
-}
 
 class App extends Component {
   render() {
