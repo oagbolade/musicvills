@@ -6,6 +6,7 @@ import Spinner from "./../LoadingSpinner/Spinner";
 import { connect } from "react-redux";
 import { getSongs } from "../../ReduxBoilerPlate/actions/getSongsActions";
 import { viewLyrics } from "../../ReduxBoilerPlate/actions/ViewLyricsActions";
+import uuid from 'uuid';
 
 class Result extends Component {
   constructor(props) {
@@ -63,7 +64,7 @@ class Result extends Component {
     if (this.SongsExists()) {
       allSongs = this.props.songProps.data.message.body.track_list.map(
         songs => (
-          <div className={style.resultCard}>
+          <div key={uuid()} className={style.resultCard}>
             <div className={style.cardHead}>
               <b>Song Name </b> <span>{songs.track.track_name}</span>
             </div>

@@ -5,6 +5,13 @@ import { connect } from "react-redux";
 import { viewLyrics } from "../../ReduxBoilerPlate/actions/ViewLyricsActions";
 
 class Modal extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+    };
+  }
+
   componentDidUpdate() {
     this.props.viewLyrics(this.props.trackId);
   }
@@ -15,7 +22,14 @@ class Modal extends Component {
     }
   }
 
+  lyricsBodyExists() {
+    if (this.props.viewLyricsProps.data.message.body.length !== 0) {
+      return true;
+    }
+  }
+
   render() {
+    let isLoading = true;
     if (this.props.isOpen && this.lyricsExists()) {
       return (
         <div>
@@ -25,7 +39,7 @@ class Modal extends Component {
                 <b>Song Name</b>: {this.props.songName}
               </div>
               <div className={styles.modalBody}>
-                {this.props.viewLyricsProps.data.message.body.length !== 0
+                {this.lyricsBodyExists()
                   ? this.props.viewLyricsProps.data.message.body.lyrics
                       .lyrics_body
                   : "Lyrics to this song is not available, try searching for another song"}
@@ -37,8 +51,6 @@ class Modal extends Component {
           </div>
         </div>
       );
-    } else if (this.props.isOpen) {
-      return <Spinner />;
     }
     return null;
   }
