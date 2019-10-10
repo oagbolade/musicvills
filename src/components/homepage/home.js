@@ -33,20 +33,22 @@ class Home extends Component {
           <h6>Discover lyrics to over 100 million songs worldwide</h6>
         </div>
         <div className={style.searchBar}>
-          <div>
-            <input
-              type="text"
-              placeholder="Enter song title..."
-              name="songTitle"
-              value={this.state.songTitle}
-              onChange={this.onChange}
-            />
-          </div>
-          <div>
-            <button type="button" onClick={this.search}>
-              Search
-            </button>
-          </div>
+          <form onSubmit={this.search}>
+            <div>
+              <input
+                type="text"
+                placeholder="Enter song title..."
+                name="songTitle"
+                value={this.state.songTitle}
+                onChange={this.onChange}
+              />
+            </div>
+            <div>
+              <button type="button" onClick={this.search}>
+                Search
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     );
