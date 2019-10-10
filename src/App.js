@@ -7,7 +7,7 @@ import store from "./ReduxBoilerPlate/store";
 import { Provider } from "react-redux";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
-if (PRODUCTION) {
+if (process.env.NODE_ENV === "production") {
   disableReactDevTools();
 }
 
