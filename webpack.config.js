@@ -1,5 +1,6 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: "./src/index.js",
@@ -26,7 +27,7 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-            modules: {
+              modules: {
                 hashPrefix: "hash"
               }
             }
@@ -54,6 +55,9 @@ module.exports = {
     new HTMLWebpackPlugin({
       template: "./public/index.html",
       favicon: "./public/icon.png"
+    }),
+    new webpack.DefinePlugin({
+      PRODUCTION: JSON.stringify(true)
     })
   ]
 };
